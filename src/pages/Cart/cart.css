@@ -1,0 +1,121 @@
+.cart {
+    margin-top: 100px;
+}
+
+.cart-items-title {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    color: gray;
+    align-items: center;
+    font-weight: 500;
+    font-size: max(1vw, 12px);
+}
+
+.cart-items-item {
+    margin: 10px 0;
+    color: #000;
+    font-weight: normal;
+}
+
+.cart-items-item img {
+    width: 50px;
+    border-radius: 10px;
+}
+
+.cart hr {
+    height: 1px;
+    border: none;
+    background-color: #e2e2e2;
+}
+
+.cart-items-item .cross {
+    cursor: pointer;
+    color: red;
+    font-weight: 700;
+}
+
+.cart-bottom {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    gap: max(12vw, 20px);
+}
+
+.cart-total {
+    float: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.cart-total-details {
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+}
+
+.cart-total hr {
+    margin: 10px 0;
+}
+
+.cart-total button {
+    text-transform: uppercase;
+    background-color: tomato;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    width: max(15vw, 200px);
+    padding: 12px 0px;
+    cursor: pointer;
+
+}
+
+.cart-promocode {
+    flex: 1;
+}
+
+.cart-promocode p {
+    color: #555;
+}
+.cart-promocode-input{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    align-items: center;
+    border-radius: 4px;
+}
+.cart-promocode-input input{
+    background-color: #eaeaea;
+    border: none;
+    width: max(10vw,180px);
+    height: 30px;
+    outline: none;
+    font-size: 20px;
+    padding: 2px;
+}
+
+.cart-promocode-input button {
+    padding: 8px 10px;
+    margin: 10px 0;
+    border: 1px solid #fff;
+    cursor: pointer;
+    background-color: #6c66ff;
+    color: #fff;
+    border-radius: 5px;
+}
+@media (max-width:750px) {
+    .cart-bottom{
+        flex-direction: column-reverse;
+    }
+    .cart-promocode {
+        justify-content: start;
+    }
+
+.cart-promocode-input input {
+    /* width: max(10vw,180px); */
+    width: max(70vw,180px);
+  }
+  
+    
+}
