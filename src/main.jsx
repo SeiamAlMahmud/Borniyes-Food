@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Root from './components/Root/Root.jsx'
 import StoreContext from './context/StoreContext.jsx'
+import Login from './pages/Login/Login.jsx'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/order",
         element: <PlaceOrder />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },
