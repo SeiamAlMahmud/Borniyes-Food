@@ -3,14 +3,15 @@ import React, { useEffect, useState } from 'react'
 import img1 from '../../assets/pngegg.png'
 import { Helmet } from 'react-helmet';
 import SocialBox from '../../components/SocialBox/SocialBox';
+import { useLocation } from 'react-router-dom';
 const Login = () => {
-
+  const location = useLocation();
   const [isActive, setIsActive] = useState(false);
   const [userActive, setUserActive] = useState(false);
   const [Name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassWord] = useState("");
-
+// console.log(location)
   const [Lemail, setLemail] = useState("");
   const [Lpassword, setLpassWord] = useState("");
 

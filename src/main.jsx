@@ -12,11 +12,12 @@ import {
 import Root from './components/Root/Root.jsx'
 import StoreContext from './context/StoreContext.jsx'
 import Login from './pages/Login/Login.jsx'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root/>,
+    element: <Root />,
     children: [
       {
         path: "/",
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <PrivateRoute>
+            <Cart />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/order",
@@ -42,7 +47,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <StoreContext>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </StoreContext>
   </React.StrictMode>,
 )
