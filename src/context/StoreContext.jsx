@@ -15,7 +15,17 @@ const StoreContext = ({ children }) => {
     const removeFromCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
     }
-
+    const deleteFromCart = (itemId) => {
+        // Create a copy of the cartItems state object
+        const updatedCartItems = { ...cartItems };
+    
+        // Remove the itemId key from the copied object
+        delete updatedCartItems[itemId];
+    
+        // Update the cartItems state with the modified object
+        setCartItems(updatedCartItems);
+    };
+    
 
     const getTotaCartAmmount = () => {
         let totalAmmount = 0;
@@ -28,7 +38,7 @@ const StoreContext = ({ children }) => {
         return totalAmmount
     }
 
-    const content = { food_list, cartItems, setCartItems, addToCart, removeFromCart, getTotaCartAmmount,count, setCount }
+    const content = { food_list, cartItems, setCartItems, addToCart, removeFromCart, getTotaCartAmmount,count, setCount,deleteFromCart }
     return (
         <foodStoreContext.Provider value={content}>
             {children}

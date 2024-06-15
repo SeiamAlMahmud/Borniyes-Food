@@ -1,10 +1,34 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './cart.css'
 import { foodStoreContext } from '../../context/StoreContext'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 const Cart = () => {
-  const { food_list, cartItems, removeFromCart,getTotaCartAmmount } = useContext(foodStoreContext)
+  const [isOpen, setIsOpen] = useState(false);
+  const [image, setImage] = useState(null);
+
+    const togglePopup = (image) => {
+        setIsOpen(!isOpen);
+        setImage(image)
+    };
+  const { food_list, cartItems, removeFromCart, getTotaCartAmmount, deleteFromCart, addToCart } = useContext(foodStoreContext)
 
   return (
+    <>
+    {
+                    isOpen && (
+                      <div className="popup" onClick={togglePopup}>
+                        <button className="close-btn" onClick={togglePopup}><HighlightOffIcon /></button>
+                    <div className="popup-inner" onClick={(e) => e.stopPropagation()}>
+                        <img 
+                            src={image} 
+                            alt="Sample" 
+                            className="popup-image" 
+                        />
+                    </div>
+                </div>
+                    )
+                  }
     <div className='cart'>
       <div className="cart-items">
         <div className="cart-items-title">
@@ -22,13 +46,18 @@ const Cart = () => {
             if (cartItems[item._id] > 0) {
               return (
                 <div key={idx}>
+                  
                   <div className="cart-items-title cart-items-item">
-                    <img src={item.image} alt="" />
+                    <img src={item.image} className='cartImage' alt="" onClick={() => togglePopup(item.image)} />
                     <p>{item.name} </p>
                     <p>$ {item.price}</p>
-                    <p>{cartItems[item._id]}</p>
+                    <div className="quantity">
+                        <button className="quantity-btn increment" onClick={() => addToCart(item._id)}>+</button>
+                    <p className='quantity-input'>{cartItems[item._id]}</p>
+                      <button className="quantity-btn decrement" onClick={() => removeFromCart(item._id)}>-</button>
+                    </div>
                     <p>$ {item.price * cartItems[item._id]}</p>
-                    <p onClick={() => removeFromCart(item._id)} className='cross'>X</p>
+                    <p onClick={() => deleteFromCart(item._id)} className='cross'><DeleteForeverIcon /></p>
                   </div>
                   <hr />
                 </div>
@@ -69,6 +98,7 @@ const Cart = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 
