@@ -19,7 +19,7 @@ const ExploreMenu = ({ category, setCategory }) => {
           // Scroll to the last item smoothly (using requestAnimationFrame for performance)
           const scrollToLast = () => {
             let currentScrollPosition = 0;
-            const scrollStep = 10; // Adjust scroll step size for desired animation speed
+            const scrollStep = 5; // Adjust scroll step size for desired animation speed
     
             const scroll = () => {
               currentScrollPosition += scrollStep;
