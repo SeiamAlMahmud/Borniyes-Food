@@ -3,6 +3,7 @@ import { food_list } from "../assets/assets"
 export const foodStoreContext = createContext(null)
 const StoreContext = ({ children }) => {
     const [cartItems, setCartItems] = useState({})
+    const [count, setCount] = useState(0)
 
     const addToCart = (itemId) => {
         if (!cartItems[itemId]) {
@@ -20,7 +21,6 @@ const StoreContext = ({ children }) => {
         let totalAmmount = 0;
         for (const key in cartItems) {
             if (cartItems[key] > 0) {
-
                 let itemInfo = food_list.find((product) => product._id === key);
                 totalAmmount += itemInfo.price * cartItems[key]
             }
@@ -28,7 +28,7 @@ const StoreContext = ({ children }) => {
         return totalAmmount
     }
 
-    const content = { food_list, cartItems, setCartItems, addToCart, removeFromCart, getTotaCartAmmount }
+    const content = { food_list, cartItems, setCartItems, addToCart, removeFromCart, getTotaCartAmmount,count, setCount }
     return (
         <foodStoreContext.Provider value={content}>
             {children}
