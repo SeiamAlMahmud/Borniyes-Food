@@ -1,6 +1,8 @@
 .header {
-    height: 34vw;
-    margin: 30px auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 38vw;
     background: url(/header_img.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -14,7 +16,7 @@
     align-items: start;
     gap: 1.5vw;
     max-width: 50%;
-    bottom: 10%;
+    bottom: 24%;
     left: 6vw;
     animation: fade-in 3s;
 }
