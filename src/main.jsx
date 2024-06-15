@@ -4,7 +4,8 @@ import Home from './pages/Home/Home.jsx'
 import Cart from './pages/Cart/Cart.jsx'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder.jsx'
 import './index.css'
-
+import { Analytics } from '@vercel/analytics/react';
+ 
 import {
   createBrowserRouter,
   RouterProvider,
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <StoreContext>
+    <Analytics />
       <RouterProvider router={router} />
     </StoreContext>
   </React.StrictMode>,
