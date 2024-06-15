@@ -18,8 +18,8 @@ const Cart = () => {
     {
                     isOpen && (
                       <div className="popup" onClick={togglePopup}>
-                        <button className="close-btn" onClick={togglePopup}><HighlightOffIcon /></button>
                     <div className="popup-inner" onClick={(e) => e.stopPropagation()}>
+                        <button className="close-btn" onClick={togglePopup}></button>
                         <img 
                             src={image} 
                             alt="Sample" 
