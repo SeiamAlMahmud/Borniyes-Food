@@ -1,7 +1,6 @@
 import React from 'react'
 import "./AppDownload.css"
 import { assets } from '../../assets/assets'
-import ParticleBackground from '../ParticleBackground/ParticleBackground'
 const AppDownload = () => {
   return (
     <>
@@ -12,7 +11,6 @@ const AppDownload = () => {
         <img src={assets.play_store} alt="" />
         <img src={assets.app_store} alt="" />
         </div>
-    <ParticleBackground/>
     </div>
     </>
   )
