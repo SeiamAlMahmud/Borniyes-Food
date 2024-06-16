@@ -19,14 +19,14 @@ const Home = () => {
     const loading = setTimeout(() => {
       setCount(prev => prev + 1)
       setTimer(true)
-    }, 500);
+    }, 300);
     return () => {clearTimeout(loading) 
       setTimer(false)}
   }, [])
   return (
     <div>
       {
-        !timer && count === 0 && (
+        !timer && count === 0 ? (
           <div className='loading'>
           <l-helix
             size="80"
@@ -34,14 +34,17 @@ const Home = () => {
             color="#800000"
             ></l-helix>
             </div>
-        ) 
+        ) : (
+          <>
+          <Header />
+          <ExploreMenu category={category} setCategory={setCategory} />
+          <FoodDisplay category={category} />
+          <AppDownload />
+          </>
+        )
       }
-          <div className='secLoading'>
-            <Header />
-            <ExploreMenu category={category} setCategory={setCategory} />
-            <FoodDisplay category={category} />
-            <AppDownload />
-          </div>
+         
+          
 
 
     </div>
