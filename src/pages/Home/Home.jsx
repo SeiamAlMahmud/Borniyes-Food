@@ -6,6 +6,7 @@ import FoodDisplay from '../../components/FoodDisplay/FoodDisplay'
 import AppDownload from '../../components/AppDownload/AppDownload'
 import { helix } from 'ldrs'
 import { foodStoreContext } from '../../context/StoreContext'
+import PatientReducer from '../PatientReducer/PatientReducer'
 
 
 // Default values shown
@@ -13,7 +14,9 @@ import { foodStoreContext } from '../../context/StoreContext'
 const Home = () => {
   const [category, setCategory] = useState("All")
   const [timer, setTimer] = useState(false)
-  const {count, setCount} = useContext(foodStoreContext)
+  const {count, setCount,food_list} = useContext(foodStoreContext)
+  console.log(food_list.length)
+
   helix.register()
   useEffect(() => {
     const loading = setTimeout(() => {
@@ -26,7 +29,9 @@ const Home = () => {
   return (
     <div>
       {
-        !timer && count === 0 ? (
+        // !timer && count === 0  
+        !food_list.length > 1  
+        ? (
           <div className='loading'>
           <l-helix
             size="80"
@@ -36,6 +41,7 @@ const Home = () => {
             </div>
         ) : (
           <>
+          {/* <PatientReducer /> */}
           <Header />
           <ExploreMenu category={category} setCategory={setCategory} />
           <FoodDisplay category={category} />

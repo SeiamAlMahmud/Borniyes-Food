@@ -39,6 +39,8 @@ const StoreContext = ({ children }) => {
     }
 
     const content = { food_list, cartItems, setCartItems, addToCart, removeFromCart, getTotaCartAmmount,count, setCount,deleteFromCart }
+
+    
     return (
         <foodStoreContext.Provider value={content}>
             {children}
